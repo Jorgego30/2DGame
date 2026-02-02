@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dgugni67v7we1"]
+
+[ext_resource type="Script" uid="uid://bdy4ojc6sihk4" path="res://escenas/Niveles/Nivel1/pared_camara.gd" id="1_jbtmp"]
+[ext_resource type="Texture2D" uid="uid://jyqie204fbda" path="res://icon.svg" id="2_fy0y2"]
+[ext_resource type="Script" uid="uid://ce58b3wqsa0hc" path="res://escenas/Niveles/Nivel1/CamPersigue.gd" id="3_2xm11"]
+[ext_resource type="Script" uid="uid://b6ftsnvdkqig2" path="res://escenas/Niveles/Nivel1/SiguienteNivel.gd" id="4_76rqq"]
+[ext_resource type="PackedScene" uid="uid://b4tj46hxed83j" path="res://Personaje/personaje.tscn" id="5_xmlpd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgjns"]
+size = Vector2(18, 652.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43uub"]
+size = Vector2(2651, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylyhu"]
+size = Vector2(261, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlx04"]
+size = Vector2(126, 127)
+
+[node name="Nivel1" type="Node2D" unique_id=1857085588]
+
+[node name="ParedCamara" type="StaticBody2D" parent="." unique_id=1502557956 node_paths=PackedStringArray("camara")]
+position = Vector2(-2, 0)
+script = ExtResource("1_jbtmp")
+camara = NodePath("../Camera2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedCamara" unique_id=1053783678]
+position = Vector2(-581, -2.75)
+shape = SubResource("RectangleShape2D_rgjns")
+
+[node name="Suelo" type="StaticBody2D" parent="." unique_id=1601715994]
+position = Vector2(-165, 258)
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo" unique_id=1418089153]
+modulate = Color(0.63987136, 0.2856885, 0.08095249, 1)
+position = Vector2(917, 0)
+scale = Vector2(20.703123, 1)
+texture = ExtResource("2_fy0y2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo" unique_id=896907735]
+position = Vector2(915.5, 0)
+shape = SubResource("RectangleShape2D_43uub")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1335632109]
+position = Vector2(-2, 0)
+script = ExtResource("3_2xm11")
+
+[node name="Plataforma" type="StaticBody2D" parent="." unique_id=262864354]
+position = Vector2(351, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma" unique_id=1186503935]
+position = Vector2(-66.5, 0)
+scale = Vector2(2.0390625, 1)
+texture = ExtResource("2_fy0y2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma" unique_id=116188549]
+position = Vector2(-66.5, -0.5)
+shape = SubResource("RectangleShape2D_ylyhu")
+
+[node name="Plataforma2" type="StaticBody2D" parent="." unique_id=457919292]
+position = Vector2(749, -96)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma2" unique_id=279364079]
+position = Vector2(-66.5, 0)
+scale = Vector2(2.0390625, 1)
+texture = ExtResource("2_fy0y2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma2" unique_id=221520190]
+position = Vector2(-66.5, -0.5)
+shape = SubResource("RectangleShape2D_ylyhu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=942355998]
+position = Vector2(1218, 127)
+script = ExtResource("4_76rqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1654921308]
+modulate = Color(1, 1, 0, 1)
+texture = ExtResource("2_fy0y2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1533370575]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_jlx04")
+
+[node name="Personaje" parent="." unique_id=619182055 instance=ExtResource("5_xmlpd")]
+position = Vector2(-359, 146)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -10,13 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Plataforms"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/name="Juego"
+run/main_scene="uid://dgugni67v7we1"
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-[dotnet]
+[global_group]
 
-project/assembly_name="Plataforms"
+Personaje=""
 
 [physics]
 

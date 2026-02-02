@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://glt26qpqdjtu"]
+
+[ext_resource type="Texture2D" uid="uid://oo8s78rx4igy" path="res://escenas/Enemigo/prota.png" id="1_oqdi8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e34w8"]
+size = Vector2(75, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh5qm"]
+atlas = ExtResource("1_oqdi8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cagvo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh5qm")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1791799761]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842347857]
+texture_filter = 1
+position = Vector2(-0.5, -19)
+shape = SubResource("RectangleShape2D_e34w8")
+
+[node name="Animacion_DuendeXD" type="AnimatedSprite2D" parent="." unique_id=1140080892]
+texture_filter = 1
+position = Vector2(0, -19)
+scale = Vector2(2.5, 2.519231)
+sprite_frames = SubResource("SpriteFrames_cagvo")
+animation = &"new_animation"

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dd6etocd6rlvd"]
+
+[ext_resource type="Script" uid="uid://bdy4ojc6sihk4" path="res://escenas/Niveles/Nivel1/pared_camara.gd" id="1_ntthe"]
+[ext_resource type="Texture2D" uid="uid://jyqie204fbda" path="res://icon.svg" id="2_mm3tg"]
+[ext_resource type="PackedScene" uid="uid://b4tj46hxed83j" path="res://Personaje/personaje.tscn" id="3_r5xhq"]
+[ext_resource type="Script" uid="uid://bwd84b52ejes1" path="res://escenas/Niveles/Nivel2/CamSigueJugador.gd" id="4_7hc4m"]
+[ext_resource type="PackedScene" uid="uid://ckfebxtmxivuf" path="res://escenas/Enemigo/Enemigo.tscn" id="5_ris86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgjns"]
+size = Vector2(18, 652.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43uub"]
+size = Vector2(2651, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylyhu"]
+size = Vector2(261, 127)
+
+[node name="Nivel2" type="Node2D" unique_id=1857085588]
+
+[node name="ParedCamara" type="StaticBody2D" parent="." unique_id=1502557956 node_paths=PackedStringArray("camara")]
+position = Vector2(-2, 0)
+script = ExtResource("1_ntthe")
+camara = NodePath("../Camera2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedCamara" unique_id=1053783678]
+position = Vector2(-581, -2.75)
+shape = SubResource("RectangleShape2D_rgjns")
+
+[node name="Suelo" type="StaticBody2D" parent="." unique_id=1601715994]
+position = Vector2(-165, 258)
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo" unique_id=1418089153]
+modulate = Color(0.63987136, 0.2856885, 0.08095249, 1)
+position = Vector2(917, 0)
+scale = Vector2(20.703123, 1)
+texture = ExtResource("2_mm3tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo" unique_id=896907735]
+position = Vector2(915.5, 0)
+shape = SubResource("RectangleShape2D_43uub")
+
+[node name="Personaje" parent="." unique_id=619182055 instance=ExtResource("3_r5xhq")]
+position = Vector2(-381, 147)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1335632109 node_paths=PackedStringArray("_jugador")]
+position = Vector2(-2, 0)
+script = ExtResource("4_7hc4m")
+_jugador = NodePath("../Personaje")
+
+[node name="Plataforma" type="StaticBody2D" parent="." unique_id=262864354]
+position = Vector2(351, 131)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma" unique_id=1186503935]
+position = Vector2(-66.5, 0)
+scale = Vector2(2.0390625, 1)
+texture = ExtResource("2_mm3tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma" unique_id=116188549]
+position = Vector2(-66.5, -0.5)
+shape = SubResource("RectangleShape2D_ylyhu")
+
+[node name="Plataforma2" type="StaticBody2D" parent="." unique_id=457919292]
+position = Vector2(594, 17)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma2" unique_id=1469800599]
+position = Vector2(-66.5, -1)
+scale = Vector2(2.0390625, 1)
+texture = ExtResource("2_mm3tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma2" unique_id=202761500]
+position = Vector2(-66.5, -1.5)
+shape = SubResource("RectangleShape2D_ylyhu")
+
+[node name="Enemigo" parent="." unique_id=585034638 node_paths=PackedStringArray("_jugador") instance=ExtResource("5_ris86")]
+position = Vector2(-33, 157)
+_jugador = NodePath("../Personaje")

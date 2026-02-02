@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://b4tj46hxed83j"]
+
+[ext_resource type="Script" uid="uid://bm2nm2bamy13f" path="res://Personaje/personaje.gd" id="1_imvb3"]
+[ext_resource type="Texture2D" uid="uid://bdq7ug85lhhtn" path="res://Personaje/AnimacionMierda.png" id="2_imvb3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imvb3"]
+size = Vector2(122, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kevx"]
+atlas = ExtResource("2_imvb3")
+region = Rect2(0, 0, 64, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbp53"]
+atlas = ExtResource("2_imvb3")
+region = Rect2(64, 0, 64, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr5g2"]
+atlas = ExtResource("2_imvb3")
+region = Rect2(0, 52, 64, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imvb3"]
+atlas = ExtResource("2_imvb3")
+region = Rect2(64, 52, 64, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t148j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kevx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbp53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr5g2")
+}],
+"loop": true,
+"name": &"Correr",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imvb3")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 19.0
+}]
+
+[node name="Personaje" type="CharacterBody2D" unique_id=619182055 node_paths=PackedStringArray("_animacion") groups=["Personaje"]]
+script = ExtResource("1_imvb3")
+_animacion = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1829156853]
+position = Vector2(-2, -6)
+shape = SubResource("RectangleShape2D_imvb3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=338028189]
+texture_filter = 1
+position = Vector2(1, -2)
+scale = Vector2(2.5, 2.519231)
+sprite_frames = SubResource("SpriteFrames_t148j")
+animation = &"Idle"
