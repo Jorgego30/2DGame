@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bc87vg3qgbvw3"]
+
+[ext_resource type="Script" uid="uid://bs0lss2cbac7x" path="res://escenas/Interfaz/MainMenu.gd" id="1_sydnb"]
+
+[node name="Control" type="Control" unique_id=411669054]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sydnb")
+
+[node name="Button2" type="Button" parent="." unique_id=840019218]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 364.0
+offset_right = 734.0
+offset_bottom = 475.0
+theme_override_font_sizes/font_size = 60
+text = "SALIR"
+
+[node name="Button" type="Button" parent="." unique_id=530597190]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 210.0
+offset_right = 733.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 60
+text = "JUGAR"
+
+[connection signal="pressed" from="Button2" to="." method="_on_Salir_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Huir_pressed"]
