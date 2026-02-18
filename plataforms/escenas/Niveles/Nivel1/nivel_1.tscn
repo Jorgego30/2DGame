@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://ce58b3wqsa0hc" path="res://escenas/Niveles/Nivel1/CamPersigue.gd" id="3_2xm11"]
 [ext_resource type="Script" uid="uid://b6ftsnvdkqig2" path="res://escenas/Niveles/Nivel1/SiguienteNivel.gd" id="4_76rqq"]
 [ext_resource type="PackedScene" uid="uid://b4tj46hxed83j" path="res://Personaje/personaje.tscn" id="5_xmlpd"]
+[ext_resource type="PackedScene" uid="uid://biqo5cqw24w24" path="res://escenas/Enemigo/Corte.tscn" id="6_fy0y2"]
+[ext_resource type="PackedScene" uid="uid://bfc5ltnkvc541" path="res://escenas/Interfaz/muerte.tscn" id="7_2xm11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgjns"]
 size = Vector2(18, 652.5)
@@ -19,6 +21,8 @@ size = Vector2(261, 127)
 size = Vector2(126, 127)
 
 [node name="Nivel1" type="Node2D" unique_id=1857085588]
+
+[node name="Corte" parent="." unique_id=1594673897 instance=ExtResource("6_fy0y2")]
 
 [node name="ParedCamara" type="StaticBody2D" parent="." unique_id=1502557956 node_paths=PackedStringArray("camara")]
 position = Vector2(-2, 0)
@@ -41,10 +45,6 @@ texture = ExtResource("2_fy0y2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo" unique_id=896907735]
 position = Vector2(915.5, 0)
 shape = SubResource("RectangleShape2D_43uub")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1335632109]
-position = Vector2(-2, 0)
-script = ExtResource("3_2xm11")
 
 [node name="Plataforma" type="StaticBody2D" parent="." unique_id=262864354]
 position = Vector2(351, 8)
@@ -83,6 +83,17 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_jlx04")
 
 [node name="Personaje" parent="." unique_id=619182055 instance=ExtResource("5_xmlpd")]
-position = Vector2(-359, 146)
+position = Vector2(-364, 130)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1335632109 node_paths=PackedStringArray("muerteBlur")]
+rotation = -0.0073814224
+script = ExtResource("3_2xm11")
+muerteBlur = NodePath("../CanvasLayer/Muerte")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=220467754]
+layer = 10
+
+[node name="Muerte" parent="CanvasLayer" unique_id=1821492960 instance=ExtResource("7_2xm11")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

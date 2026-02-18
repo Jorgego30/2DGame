@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://ca3bqvhhyrmia"]
+
+[ext_resource type="Texture2D" uid="uid://ccrycijbhfc3o" path="res://Personaje/pixil-frame-0.png" id="1_w7t1q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubdis"]
+atlas = ExtResource("1_w7t1q")
+region = Rect2(0, 0, 64, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qwok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubdis")
+}],
+"loop": true,
+"name": &"Cara",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7t1q"]
+size = Vector2(68, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt8vr"]
+atlas = ExtResource("1_w7t1q")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q8jgr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt8vr")
+}],
+"loop": true,
+"name": &"Cuerpo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qwok"]
+size = Vector2(95, 73)
+
+[node name="Ragdoll" type="Node2D" unique_id=1760752040]
+z_index = 10
+
+[node name="Cabeza" type="RigidBody2D" parent="." unique_id=1444496966]
+z_index = 10
+
+[node name="Prueba1" type="AnimatedSprite2D" parent="Cabeza" unique_id=1991239695]
+texture_filter = 1
+position = Vector2(-5.4999857, -50)
+scale = Vector2(3.6093755, 3.7499998)
+sprite_frames = SubResource("SpriteFrames_8qwok")
+animation = &"Cara"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabeza" unique_id=257112710]
+position = Vector2(-1, -46)
+shape = SubResource("RectangleShape2D_w7t1q")
+
+[node name="Cuerpo" type="RigidBody2D" parent="." unique_id=414985796]
+z_index = 10
+
+[node name="Prueba2" type="AnimatedSprite2D" parent="Cuerpo" unique_id=1715113518]
+texture_filter = 1
+position = Vector2(-5, 10)
+scale = Vector2(3.5585938, 3.5312502)
+sprite_frames = SubResource("SpriteFrames_q8jgr")
+animation = &"Cuerpo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo" unique_id=1491512922]
+position = Vector2(-2.5, 25.5)
+shape = SubResource("RectangleShape2D_8qwok")

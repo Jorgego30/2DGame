@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://biqo5cqw24w24"]
+
+[ext_resource type="Script" uid="uid://be1sd1vevissh" path="res://escenas/Enemigo/corte.gd" id="1_dkubi"]
+[ext_resource type="AudioStream" uid="uid://dq0fbfy172dxy" path="res://escenas/Enemigo/SonidoCorte.wav" id="2_u72pp"]
+[ext_resource type="AudioStream" uid="uid://bnaxtxal8rrlk" path="res://escenas/Enemigo/SonidoCorte2.wav" id="3_sboky"]
+[ext_resource type="Script" uid="uid://efjmxwaulnqk" path="res://escenas/Enemigo/area_corte.gd" id="4_8y3pf"]
+[ext_resource type="PackedScene" uid="uid://ca3bqvhhyrmia" path="res://Personaje/ragdoll.tscn" id="5_147w6"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sboky"]
+a = Vector2(113.64283, 0.39396003)
+b = Vector2(-111.74964, 0.47236344)
+
+[node name="Corte" type="Node2D" unique_id=1594673897 node_paths=PackedStringArray("linea", "audio", "carpeta", "colision")]
+script = ExtResource("1_dkubi")
+linea = NodePath("Cortes/Line2D")
+audio = [NodePath("Audi1"), NodePath("Audi2")]
+carpeta = NodePath("Cortes")
+colision = NodePath("Cortes/AreaCorte/CollisionShape2D")
+
+[node name="Audi1" type="AudioStreamPlayer" parent="." unique_id=1805266855]
+stream = ExtResource("2_u72pp")
+volume_db = -10.0
+
+[node name="Audi2" type="AudioStreamPlayer" parent="." unique_id=677413520]
+stream = ExtResource("3_sboky")
+volume_db = -10.0
+
+[node name="Cortes" type="Node2D" parent="." unique_id=857233930]
+
+[node name="Line2D" type="Line2D" parent="Cortes" unique_id=126864885]
+position = Vector2(-2, 1)
+points = PackedVector2Array(-120, 0, 60.71472, 0, 120, 0)
+width = 2.0
+
+[node name="AreaCorte" type="Area2D" parent="Cortes" unique_id=778314323]
+position = Vector2(-3, -1)
+scale = Vector2(3.8925364, 1.4268326)
+collision_mask = 2
+script = ExtResource("4_8y3pf")
+escena_ragdoll = ExtResource("5_147w6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cortes/AreaCorte" unique_id=151568101]
+position = Vector2(-1.0000229, 1.000001)
+rotation = 0.005293891
+scale = Vector2(0.28329247, 2.6452968)
+shape = SubResource("SegmentShape2D_sboky")

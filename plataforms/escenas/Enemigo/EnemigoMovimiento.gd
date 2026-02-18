@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var _audio : AudioStreamPlayer2D
 var _velocidad_salto: float = -550.0
 
-var esperando := false
+var esperando : bool = false
 
 func _physics_process(delta: float) -> void:
 	
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	if _jugador == null:
 		return
 
-	if not esperando and _jugador.position.y < position.y - 20 and is_on_floor() :
+	if not esperando and _jugador.position.y < position.y - 20 and is_on_floor():
 		 
 		esperar_y_saltar()
 		

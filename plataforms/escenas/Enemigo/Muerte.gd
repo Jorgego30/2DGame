@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var _siguiente : String = "res://escenas/Niveles/Nivel1/nivel_1.tscn"
+@export var _muerte : String = "res://escenas/Niveles/Nivel1/nivel_1.tscn"
 @export var enemigo : CharacterBody2D 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,4 +29,4 @@ func _on_body_entered(body):
 		#Esperamos 2 segundos para q vea la animacion
 		await get_tree().create_timer(2).timeout
 		#Cambiamos de escena
-		get_tree().change_scene_to_file(_siguiente)
+		get_tree().change_scene_to_file(_muerte)

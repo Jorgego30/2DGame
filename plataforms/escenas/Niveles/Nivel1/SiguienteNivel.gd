@@ -1,6 +1,5 @@
 extends Area2D
 
-
 @export var siguiente : String = "res://escenas/Niveles/Nivel2/nivel_2.tscn"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

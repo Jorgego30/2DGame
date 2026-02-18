@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bfc5ltnkvc541"]
+
+[ext_resource type="Script" uid="uid://cloxjmm0e6y0b" path="res://escenas/Interfaz/Jugar_De_Nuevo.gd" id="1_c7ffv"]
+[ext_resource type="Shader" uid="uid://bodmkifecoj56" path="res://escenas/Interfaz/Shader.gdshader" id="1_uo1rj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7ffv"]
+shader = ExtResource("1_uo1rj")
+shader_parameter/lod = 2.0
+shader_parameter/color_tinte = Color(0.59905666, 1.4318898e-06, 4.3317675e-07, 0.4)
+
+[node name="Muerte" type="Control" unique_id=1821492960]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c7ffv")
+
+[node name="FondoBlur" type="ColorRect" parent="." unique_id=1013962813]
+material = SubResource("ShaderMaterial_c7ffv")
+layout_mode = 0
+offset_left = -25.0
+offset_top = -21.0
+offset_right = 1182.0
+offset_bottom = 663.0
+
+[node name="Jugar_Nuevo" type="Button" parent="." unique_id=737031219]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -108.0
+offset_right = 88.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Again?"
+
+[node name="Salir" type="Button" parent="." unique_id=1399716134]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = 3.0
+offset_right = 88.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit (Maricon)"
+
+[connection signal="pressed" from="Jugar_Nuevo" to="." method="_on_jugar_nuevo_pressed"]
+[connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]

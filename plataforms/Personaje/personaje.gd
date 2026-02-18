@@ -16,9 +16,12 @@ extends CharacterBody2D
 #Esto permite que el personaje interactúe correctamente con las físicas,
 #aunque el rendimiento del equipo varíe.
 @export var _animacion : AnimatedSprite2D
+@export var _animacionBorrable : Array[AnimatedSprite2D] = []
 @export var _velocidad: float = 200.0 #para crear variables: var _variable: tipo = valor
 @export var _velocidad_salto: float = -800.0
 var _puede_mover : bool = true
+
+
 
 func _physics_process(delta):
 	#Comprobamos si el jugador se puede mover

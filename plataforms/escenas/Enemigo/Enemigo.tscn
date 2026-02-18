@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://sjuvgha1b1pc" path="res://escenas/Enemigo/EnemigoMovimiento.gd" id="1_vf353"]
 [ext_resource type="PackedScene" uid="uid://cng03ytwxw8do" path="res://escenas/Enemigo/animacion_duende_xd.tscn" id="2_vf353"]
 [ext_resource type="AudioStream" uid="uid://dc63pjmkfyc3m" path="res://escenas/Enemigo/sonido.wav" id="3_8vkc1"]
-[ext_resource type="Script" uid="uid://dhipdq8cb6efq" path="res://escenas/Enemigo/Muerte.gd" id="4_kwis8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e34w8"]
 size = Vector2(75, 80)
@@ -27,13 +26,11 @@ shape = SubResource("RectangleShape2D_e34w8")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=153542650]
 stream = ExtResource("3_8vkc1")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1108408000 node_paths=PackedStringArray("enemigo")]
-script = ExtResource("4_kwis8")
-enemigo = NodePath("..")
+[node name="Area" type="Area2D" parent="." unique_id=1108408000]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1640810460]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1640810460]
 position = Vector2(-1.5, -3)
 shape = SubResource("RectangleShape2D_5h76g")
 debug_color = Color(0.88582903, 0.22989899, 0.6040164, 0.41960785)
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area" to="Area" method="_on_body_entered"]
