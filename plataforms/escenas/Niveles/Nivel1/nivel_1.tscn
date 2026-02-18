@@ -79,11 +79,11 @@ modulate = Color(1, 1, 0, 1)
 texture = ExtResource("2_fy0y2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1533370575]
-position = Vector2(0, 0.5)
+position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_jlx04")
 
 [node name="Personaje" parent="." unique_id=619182055 instance=ExtResource("5_xmlpd")]
-position = Vector2(-364, 130)
+position = Vector2(-364, 146)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1335632109 node_paths=PackedStringArray("muerteBlur")]
 rotation = -0.0073814224

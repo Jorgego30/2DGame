@@ -73,4 +73,5 @@ shape = SubResource("RectangleShape2D_ylyhu")
 
 [node name="Enemigo" parent="." unique_id=585034638 node_paths=PackedStringArray("_jugador") instance=ExtResource("5_ris86")]
 position = Vector2(-33, 157)
+scale = Vector2(-1.8097954, 1.7688566)
 _jugador = NodePath("../Personaje")

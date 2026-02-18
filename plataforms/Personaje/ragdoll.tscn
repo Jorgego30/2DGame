@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://ca3bqvhhyrmia"]
 
-[ext_resource type="Texture2D" uid="uid://ccrycijbhfc3o" path="res://Personaje/pixil-frame-0.png" id="1_w7t1q"]
+[ext_resource type="Texture2D" uid="uid://j7txwrmh2e2c" path="res://Personaje/muertevacana.png" id="1_w7t1q"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ubdis"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qwok"]
 atlas = ExtResource("1_w7t1q")
-region = Rect2(0, 0, 64, 23)
+region = Rect2(42, 0, 42, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8qwok"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ubdis")
+"texture": SubResource("AtlasTexture_8qwok")
 }],
 "loop": true,
 "name": &"Cara",
@@ -20,15 +20,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7t1q"]
 size = Vector2(68, 70)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mt8vr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8jgr"]
 atlas = ExtResource("1_w7t1q")
-region = Rect2(0, 32, 64, 32)
+region = Rect2(0, 0, 42, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q8jgr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mt8vr")
+"texture": SubResource("AtlasTexture_q8jgr")
 }],
 "loop": true,
 "name": &"Cuerpo",
@@ -43,10 +43,11 @@ z_index = 10
 
 [node name="Cabeza" type="RigidBody2D" parent="." unique_id=1444496966]
 z_index = 10
+position = Vector2(9, 25)
 
 [node name="Prueba1" type="AnimatedSprite2D" parent="Cabeza" unique_id=1991239695]
 texture_filter = 1
-position = Vector2(-5.4999857, -50)
+position = Vector2(5.0000005, -42)
 scale = Vector2(3.6093755, 3.7499998)
 sprite_frames = SubResource("SpriteFrames_8qwok")
 animation = &"Cara"

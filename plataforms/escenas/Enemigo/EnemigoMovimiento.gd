@@ -19,13 +19,16 @@ func _physics_process(delta: float) -> void:
 		 
 		esperar_y_saltar()
 		
-		
+	if(velocity.x!=0):
+		_animacion.play("correr")
+	else:
+		_animacion.play("idle")
 	if _jugador.position.x < position.x:
-		_animacion.flip_h = true
+		_animacion.flip_h = false
 		velocity.x = -_velocidad_enemigo
 	
 	elif _jugador.position.x > position.x :
-		_animacion.flip_h = false
+		_animacion.flip_h = true
 		velocity.x = _velocidad_enemigo
 	move_and_slide()
 	

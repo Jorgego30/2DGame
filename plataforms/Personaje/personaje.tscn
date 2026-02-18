@@ -1,45 +1,33 @@
 [gd_scene format=3 uid="uid://b4tj46hxed83j"]
 
 [ext_resource type="Script" uid="uid://bm2nm2bamy13f" path="res://Personaje/personaje.gd" id="1_imvb3"]
-[ext_resource type="Texture2D" uid="uid://bdq7ug85lhhtn" path="res://Personaje/AnimacionMierda.png" id="2_imvb3"]
-[ext_resource type="Texture2D" uid="uid://cw7xibj1s6hb8" path="res://Personaje/Gemini_Generated_Image_foautxfoautxfoau-removebg-preview.png" id="2_rbp53"]
+[ext_resource type="Texture2D" uid="uid://bwiwmaym75fun" path="res://characters/mainCharacter/prota.png" id="3_lr5g2"]
 [ext_resource type="Texture2D" uid="uid://oo8s78rx4igy" path="res://escenas/Enemigo/prota.png" id="4_lr5g2"]
 [ext_resource type="Texture2D" uid="uid://ccrycijbhfc3o" path="res://Personaje/pixil-frame-0.png" id="5_lr5g2"]
+[ext_resource type="Texture2D" uid="uid://b8l27owl1hi0u" path="res://Personaje/framesmover.png" id="5_t148j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imvb3"]
-size = Vector2(100, 105)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0kevx"]
-atlas = ExtResource("2_imvb3")
-region = Rect2(0, 0, 64, 52)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rbp53"]
-atlas = ExtResource("2_imvb3")
-region = Rect2(64, 0, 64, 52)
+size = Vector2(113, 103.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lr5g2"]
-atlas = ExtResource("2_imvb3")
-region = Rect2(0, 52, 64, 52)
+atlas = ExtResource("5_t148j")
+region = Rect2(0, 0, 37, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t148j"]
-atlas = ExtResource("2_rbp53")
-region = Rect2(0, 0, 125, 125)
+atlas = ExtResource("5_t148j")
+region = Rect2(37, 0, 37, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7bkg0"]
-atlas = ExtResource("2_rbp53")
-region = Rect2(125, 0, 125, 125)
+atlas = ExtResource("5_t148j")
+region = Rect2(74, 0, 37, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3rv3"]
-atlas = ExtResource("2_rbp53")
-region = Rect2(250, 0, 125, 125)
+atlas = ExtResource("5_t148j")
+region = Rect2(111, 0, 37, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjiqf"]
-atlas = ExtResource("2_rbp53")
-region = Rect2(375, 0, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_imvb3"]
-atlas = ExtResource("2_imvb3")
-region = Rect2(64, 52, 64, 52)
+atlas = ExtResource("3_lr5g2")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_whm50"]
 atlas = ExtResource("4_lr5g2")
@@ -49,19 +37,8 @@ region = Rect2(0, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0kevx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rbp53")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_lr5g2")
-}],
-"loop": true,
-"name": &"Correr",
-"speed": 5.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t148j")
 }, {
@@ -70,17 +47,14 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c3rv3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wjiqf")
 }],
 "loop": true,
-"name": &"Correr3",
+"name": &"Correr",
 "speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_imvb3")
+"texture": SubResource("AtlasTexture_wjiqf")
 }],
 "loop": true,
 "name": &"Idle",
@@ -126,7 +100,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lr5g2"]
-size = Vector2(73, 65)
+size = Vector2(86.25, 57.5)
 
 [node name="Personaje" type="CharacterBody2D" unique_id=619182055 node_paths=PackedStringArray("_animacion", "_animacionBorrable") groups=["Personaje"]]
 script = ExtResource("1_imvb3")
@@ -134,7 +108,7 @@ _animacion = NodePath("AnimatedSprite2D")
 _animacionBorrable = [NodePath("Prueba1"), NodePath("Prueba2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1829156853]
-position = Vector2(-5, -1.5)
+position = Vector2(-1.5, -4.75)
 shape = SubResource("RectangleShape2D_imvb3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=338028189]
@@ -142,7 +116,7 @@ texture_filter = 1
 position = Vector2(-1.4999981, -4.500004)
 scale = Vector2(3.71875, 3.28125)
 sprite_frames = SubResource("SpriteFrames_t148j")
-animation = &"Salto"
+animation = &"Idle"
 
 [node name="Prueba1" type="AnimatedSprite2D" parent="." unique_id=1755200032]
 visible = false
@@ -161,10 +135,10 @@ sprite_frames = SubResource("SpriteFrames_ea8co")
 animation = &"Cuerpo"
 
 [node name="AreaCabeza" type="Area2D" parent="." unique_id=2078015583]
-position = Vector2(-1, 4)
+position = Vector2(0, 17)
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCabeza" unique_id=620058647]
-position = Vector2(-2.5, -48.5)
+position = Vector2(-8.125, -47.25)
 shape = SubResource("RectangleShape2D_lr5g2")
 debug_color = Color(0.85208166, 0.17490542, 0.80057514, 0.41960785)

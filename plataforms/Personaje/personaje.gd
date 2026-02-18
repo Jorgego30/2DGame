@@ -39,10 +39,10 @@ func _physics_process(delta):
 	# --- AÑADIDO: Solo procesamos Idle/Correr si estamos en el suelo ---
 	else: 
 		if Input.is_key_pressed(KEY_D):
-			_animacion.flip_h = true
+			_animacion.flip_h = false
 			velocity.x = _velocidad
 		elif Input.is_key_pressed(KEY_A):
-			_animacion.flip_h = false
+			_animacion.flip_h = true
 			velocity.x = -_velocidad
 		else:
 			velocity.x = 0
