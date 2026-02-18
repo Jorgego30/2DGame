@@ -21,8 +21,6 @@ extends CharacterBody2D
 @export var _velocidad_salto: float = -800.0
 var _puede_mover : bool = true
 
-
-
 func _physics_process(delta):
 	#Comprobamos si el jugador se puede mover
 	if not _puede_mover:
@@ -30,22 +28,41 @@ func _physics_process(delta):
 		return
 		
 	#gravedad
-	velocity += get_gravity() * delta #Si no se asignan valores si se multiplica por delta 
-										#en este caso estamos sumando la gravedad
+	velocity += get_gravity() * delta 
+	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = _velocidad_salto
-	if Input.is_key_pressed(KEY_D):
-		_animacion.flip_h = true
-		velocity.x = _velocidad
-	elif Input.is_key_pressed(KEY_A):
-		_animacion.flip_h = false
-		velocity.x = -_velocidad
-	else:
-		velocity.x = 0
-		_animacion.play("Idle")
-		
-	if velocity.x != 0:
-		_animacion.play("Correr")
+	
+	if not is_on_floor():
+		_animacion.play("Salto")
+	
+	# --- AÑADIDO: Solo procesamos Idle/Correr si estamos en el suelo ---
+	else: 
+		if Input.is_key_pressed(KEY_D):
+			_animacion.flip_h = true
+			velocity.x = _velocidad
+		elif Input.is_key_pressed(KEY_A):
+			_animacion.flip_h = false
+			velocity.x = -_velocidad
+		else:
+			velocity.x = 0
+			_animacion.play("Idle")
+			
+		if velocity.x != 0:
+			_animacion.play("Correr")
+	# -----------------------------------------------------------------
+
+	# Mantenemos el movimiento horizontal fuera para que puedas moverte en el aire
+	if not is_on_floor():
+		if Input.is_key_pressed(KEY_D):
+			velocity.x = _velocidad
+			_animacion.flip_h = false
+		elif Input.is_key_pressed(KEY_A):
+			velocity.x = -_velocidad
+			_animacion.flip_h = true
+		else:
+			velocity.x = 0
+
 	move_and_slide()
 
 

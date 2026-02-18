@@ -91,7 +91,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_whm50")
 }],
 "loop": true,
-"name": &"Idle1",
+"name": &"Salto",
 "speed": 5.0
 }]
 
@@ -142,7 +142,7 @@ texture_filter = 1
 position = Vector2(-1.4999981, -4.500004)
 scale = Vector2(3.71875, 3.28125)
 sprite_frames = SubResource("SpriteFrames_t148j")
-animation = &"Idle"
+animation = &"Salto"
 
 [node name="Prueba1" type="AnimatedSprite2D" parent="." unique_id=1755200032]
 visible = false
