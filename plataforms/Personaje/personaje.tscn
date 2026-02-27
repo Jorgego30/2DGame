@@ -1,44 +1,41 @@
 [gd_scene format=3 uid="uid://b4tj46hxed83j"]
 
 [ext_resource type="Script" uid="uid://bm2nm2bamy13f" path="res://Personaje/personaje.gd" id="1_imvb3"]
+[ext_resource type="Texture2D" uid="uid://c5dtdl85ebnke" path="res://Personaje/framesmoverfinal.png" id="2_lr5g2"]
 [ext_resource type="Texture2D" uid="uid://bwiwmaym75fun" path="res://characters/mainCharacter/prota.png" id="3_lr5g2"]
-[ext_resource type="Texture2D" uid="uid://oo8s78rx4igy" path="res://escenas/Enemigo/prota.png" id="4_lr5g2"]
 [ext_resource type="Texture2D" uid="uid://ccrycijbhfc3o" path="res://Personaje/pixil-frame-0.png" id="5_lr5g2"]
-[ext_resource type="Texture2D" uid="uid://b8l27owl1hi0u" path="res://Personaje/framesmover.png" id="5_t148j"]
+[ext_resource type="Texture2D" uid="uid://bsi3bsatlss18" path="res://Personaje/salto.png" id="5_t148j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imvb3"]
 size = Vector2(113, 103.5)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lr5g2"]
-atlas = ExtResource("5_t148j")
-region = Rect2(0, 0, 37, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_t148j"]
-atlas = ExtResource("5_t148j")
-region = Rect2(37, 0, 37, 32)
+atlas = ExtResource("2_lr5g2")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7bkg0"]
-atlas = ExtResource("5_t148j")
-region = Rect2(74, 0, 37, 32)
+atlas = ExtResource("2_lr5g2")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3rv3"]
-atlas = ExtResource("5_t148j")
-region = Rect2(111, 0, 37, 32)
+atlas = ExtResource("2_lr5g2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30dm6"]
+atlas = ExtResource("2_lr5g2")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjiqf"]
 atlas = ExtResource("3_lr5g2")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_whm50"]
-atlas = ExtResource("4_lr5g2")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea8co"]
+atlas = ExtResource("5_t148j")
+region = Rect2(0, 0, 35, 35)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t148j"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lr5g2")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t148j")
 }, {
@@ -47,6 +44,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c3rv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30dm6")
 }],
 "loop": true,
 "name": &"Correr",
@@ -62,7 +62,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_whm50")
+"texture": SubResource("AtlasTexture_ea8co")
 }],
 "loop": true,
 "name": &"Salto",
@@ -116,7 +116,8 @@ texture_filter = 1
 position = Vector2(-1.4999981, -4.500004)
 scale = Vector2(3.71875, 3.28125)
 sprite_frames = SubResource("SpriteFrames_t148j")
-animation = &"Idle"
+animation = &"Salto"
+frame_progress = 0.044633295
 
 [node name="Prueba1" type="AnimatedSprite2D" parent="." unique_id=1755200032]
 visible = false

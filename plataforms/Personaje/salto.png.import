@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8l27owl1hi0u"
-path="res://.godot/imported/framesmover.png-4b740af89a1fff7a0eb618da52db6e9a.ctex"
+uid="uid://bsi3bsatlss18"
+path="res://.godot/imported/salto.png-141258450ba97e62197e5f2241a6d5c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personaje/framesmover.png"
-dest_files=["res://.godot/imported/framesmover.png-4b740af89a1fff7a0eb618da52db6e9a.ctex"]
+source_file="res://Personaje/salto.png"
+dest_files=["res://.godot/imported/salto.png-141258450ba97e62197e5f2241a6d5c5.ctex"]
 
 [params]
 
